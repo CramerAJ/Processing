@@ -11,9 +11,9 @@ float solarWave = 1200;
 float planetDefault = 10;
 
 // NEW
-float planetsToStart = random(30,60);
-float lowerPlanetRadius = 150;
-float upperPlanetRadius = 500;
+float planetsToStart = random(35,60);
+float lowerPlanetRadius = 75;
+float upperPlanetRadius = 400;
 
 //Casting an Arraylist as the class, calling emits to create new list
 ArrayList<emitter> emitterList = new ArrayList();
@@ -280,7 +280,7 @@ void draw(){
     tmp.draw();
   }
   if (planetList.size()<=40){
-    for (int i = 0; i < planetsToStart/2; i++) planetList.add(new planetAgent(i, lowerPlanetRadius, upperPlanetRadius));
+    for (int i = 0; i < planetsToStart; i++) planetList.add(new planetAgent(i, lowerPlanetRadius, upperPlanetRadius));
     
   }
     
