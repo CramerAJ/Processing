@@ -13,7 +13,7 @@ float planetDefault = 10;
 // NEW
 float planetsToStart = random(35,60);
 float lowerPlanetRadius = 75;
-float upperPlanetRadius = 400;
+float upperPlanetRadius = 500;
 
 //Casting an Arraylist as the class, calling emits to create new list
 ArrayList<emitter> emitterList = new ArrayList();
@@ -145,7 +145,7 @@ class planetAgent{
     this.radius = (uppBound - lowBound)*index/planetsToStart + lowBound;
     this.x = this.radius*CX;
     this.y = this.radius*SX;
-    this.planetSpeed = random(0.001,0.015);
+    this.planetSpeed = random(-0.015,0.015);
   } 
 
   void update() {
@@ -238,7 +238,7 @@ class emitter {
     // drawing the particle
     void draw() {
       //fill(random(255),random(255),random(255));
-      fill(black,black,black);
+      fill(100,100,100);
       ellipse(x,y,rad,rad);
       
    }
@@ -251,7 +251,7 @@ sunAgent sun;
 void setup(){
   //Deleteing the line around the ellipses
   noStroke();
-  size(1080,675);
+  fullScreen();
   fill(white,white,white);
   frameRate(30);
   sun = new sunAgent();

@@ -13,9 +13,9 @@ void setup(){
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 void draw(){
   
-  if (mousePressed){
-     confettiList.add(new confetti(mouseX, mouseY,5));
-  }
+  
+  confettiList.add(new confetti(mouseX, mouseY, 5));
+  
   background(250);
     
   ellipse(mouseX,mouseY,20,20);

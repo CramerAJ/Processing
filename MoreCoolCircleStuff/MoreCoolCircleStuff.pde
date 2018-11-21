@@ -41,7 +41,7 @@ class ballAgent{
     this.startY = this.radius*SX;
     this.x = this.radius*CX;
     this.y = this.radius*SX;
-    this.ballSpeed = 0.004;
+    this.ballSpeed = 0.0004;
   } 
   
     void update() {
@@ -49,7 +49,7 @@ class ballAgent{
     this.x = this.radius*cos(angle + ballSpeed);
     this.y = this.radius*sin(angle + ballSpeed);
     this.colOR = startColor;
-    this.ballSpeed += 0.00001;
+    this.ballSpeed += 0.00002;
     
    for (int i = 0; i < ballList.size(); i++) {
       ballAgent tmp = ballList.get(i);
@@ -60,7 +60,7 @@ class ballAgent{
       }
     }
       else if(tmp.ballSpeed >=5){
-        this.ballSpeed = random(0.001,0.01);
+        this.ballSpeed = random(0.00001,0.0001);
       }
       else if(tmp.ballSpeed >= 1.1){
         this.colOR = color(random(75,225), random(75,225), random(75,225));
@@ -71,8 +71,12 @@ class ballAgent{
   
   void draw(){
     fill(this.colOR);
-    ellipse(this.x + width/2,this.y + height/2,ballRadius,this.ballRadius);
-
+    ellipse(this.x + width/4,this.y + height/4,ballRadius,this.ballRadius);
+    
+    //Made three more instances, but they arn't unique
+    ellipse(this.x + width/2+width/4,this.y + height/4,ballRadius,this.ballRadius);
+    ellipse(this.x + width/4,this.y + height/2+height/4,ballRadius,this.ballRadius);
+    ellipse(this.x + width/2+width/4,this.y + height/2+height/4,ballRadius,this.ballRadius);
   }
 }
 
@@ -85,9 +89,9 @@ float lineHeight = 10;
 //---------------------------------------------------------------------------------------------------
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 void setup(){
-  size(1080,850);
+  fullScreen();
   background(0);
-  
+  noStroke();
   for (int i = 0; i < numBalls; i++) ballList.add(new ballAgent(i , ballLowBound, ballUpBound));
   
 }
